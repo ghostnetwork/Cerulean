@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9EE799F81AE07BB800A88E44 /* Cerulean.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE799F71AE07BB800A88E44 /* Cerulean.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EE799FE1AE07BB800A88E44 /* Cerulean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE799F21AE07BB800A88E44 /* Cerulean.framework */; };
+		9EE79A051AE07BB800A88E44 /* CeruleanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE79A041AE07BB800A88E44 /* CeruleanTests.m */; };
+		9EE79A831AE0A05000A88E44 /* NSMutableArray+Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE79A801AE0A05000A88E44 /* NSMutableArray+Queue.h */; };
+		9EE79A841AE0A05000A88E44 /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE79A811AE0A05000A88E44 /* NSMutableArray+Queue.m */; };
+		9EE79A851AE0A05000A88E44 /* CGRectTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE79A821AE0A05000A88E44 /* CGRectTools.h */; };
+		9EE79A911AE0A28F00A88E44 /* Central.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE79A871AE0A28F00A88E44 /* Central.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EE79A921AE0A28F00A88E44 /* Central.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE79A881AE0A28F00A88E44 /* Central.m */; };
+		9EE79A971AE0A28F00A88E44 /* CeruleanObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE79A8D1AE0A28F00A88E44 /* CeruleanObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EE79A981AE0A28F00A88E44 /* CeruleanObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE79A8E1AE0A28F00A88E44 /* CeruleanObject.m */; };
+		9EE79A991AE0A28F00A88E44 /* Peripheral.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE79A8F1AE0A28F00A88E44 /* Peripheral.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EE79A9A1AE0A29000A88E44 /* Peripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE79A901AE0A28F00A88E44 /* Peripheral.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9EE799FF1AE07BB800A88E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EE799E91AE07BB700A88E44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EE799F11AE07BB800A88E44;
+			remoteInfo = Cerulean;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9EE799F21AE07BB800A88E44 /* Cerulean.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cerulean.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE799F61AE07BB800A88E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EE799F71AE07BB800A88E44 /* Cerulean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cerulean.h; sourceTree = "<group>"; };
+		9EE799FD1AE07BB800A88E44 /* CeruleanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CeruleanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE79A031AE07BB800A88E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EE79A041AE07BB800A88E44 /* CeruleanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CeruleanTests.m; sourceTree = "<group>"; };
+		9EE79A801AE0A05000A88E44 /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Queue.h"; sourceTree = "<group>"; };
+		9EE79A811AE0A05000A88E44 /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Queue.m"; sourceTree = "<group>"; };
+		9EE79A821AE0A05000A88E44 /* CGRectTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectTools.h; sourceTree = "<group>"; };
+		9EE79A871AE0A28F00A88E44 /* Central.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Central.h; sourceTree = "<group>"; };
+		9EE79A881AE0A28F00A88E44 /* Central.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Central.m; sourceTree = "<group>"; };
+		9EE79A8D1AE0A28F00A88E44 /* CeruleanObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeruleanObject.h; sourceTree = "<group>"; };
+		9EE79A8E1AE0A28F00A88E44 /* CeruleanObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeruleanObject.m; sourceTree = "<group>"; };
+		9EE79A8F1AE0A28F00A88E44 /* Peripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Peripheral.h; sourceTree = "<group>"; };
+		9EE79A901AE0A28F00A88E44 /* Peripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Peripheral.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9EE799EE1AE07BB800A88E44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EE799FA1AE07BB800A88E44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE799FE1AE07BB800A88E44 /* Cerulean.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9EE799E81AE07BB700A88E44 = {
+			isa = PBXGroup;
+			children = (
+				9EE799F41AE07BB800A88E44 /* Cerulean */,
+				9EE79A011AE07BB800A88E44 /* CeruleanTests */,
+				9EE799F31AE07BB800A88E44 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9EE799F31AE07BB800A88E44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EE799F21AE07BB800A88E44 /* Cerulean.framework */,
+				9EE799FD1AE07BB800A88E44 /* CeruleanTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EE799F41AE07BB800A88E44 /* Cerulean */ = {
+			isa = PBXGroup;
+			children = (
+				9EE79A0E1AE07BC800A88E44 /* Source */,
+				9EE799F71AE07BB800A88E44 /* Cerulean.h */,
+				9EE799F51AE07BB800A88E44 /* Supporting Files */,
+			);
+			path = Cerulean;
+			sourceTree = "<group>";
+		};
+		9EE799F51AE07BB800A88E44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9EE799F61AE07BB800A88E44 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9EE79A011AE07BB800A88E44 /* CeruleanTests */ = {
+			isa = PBXGroup;
+			children = (
+				9EE79A041AE07BB800A88E44 /* CeruleanTests.m */,
+				9EE79A021AE07BB800A88E44 /* Supporting Files */,
+			);
+			path = CeruleanTests;
+			sourceTree = "<group>";
+		};
+		9EE79A021AE07BB800A88E44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9EE79A031AE07BB800A88E44 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9EE79A0E1AE07BC800A88E44 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9EE79A861AE0A28F00A88E44 /* Cerulean */,
+				9EE79A7E1AE0A05000A88E44 /* Common */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		9EE79A7E1AE0A05000A88E44 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9EE79A7F1AE0A05000A88E44 /* Categories */,
+				9EE79A821AE0A05000A88E44 /* CGRectTools.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9EE79A7F1AE0A05000A88E44 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9EE79A801AE0A05000A88E44 /* NSMutableArray+Queue.h */,
+				9EE79A811AE0A05000A88E44 /* NSMutableArray+Queue.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		9EE79A861AE0A28F00A88E44 /* Cerulean */ = {
+			isa = PBXGroup;
+			children = (
+				9EE79A871AE0A28F00A88E44 /* Central.h */,
+				9EE79A881AE0A28F00A88E44 /* Central.m */,
+				9EE79A8D1AE0A28F00A88E44 /* CeruleanObject.h */,
+				9EE79A8E1AE0A28F00A88E44 /* CeruleanObject.m */,
+				9EE79A8F1AE0A28F00A88E44 /* Peripheral.h */,
+				9EE79A901AE0A28F00A88E44 /* Peripheral.m */,
+			);
+			path = Cerulean;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9EE799EF1AE07BB800A88E44 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE79A971AE0A28F00A88E44 /* CeruleanObject.h in Headers */,
+				9EE79A991AE0A28F00A88E44 /* Peripheral.h in Headers */,
+				9EE79A911AE0A28F00A88E44 /* Central.h in Headers */,
+				9EE79A851AE0A05000A88E44 /* CGRectTools.h in Headers */,
+				9EE799F81AE07BB800A88E44 /* Cerulean.h in Headers */,
+				9EE79A831AE0A05000A88E44 /* NSMutableArray+Queue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9EE799F11AE07BB800A88E44 /* Cerulean */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EE79A081AE07BB800A88E44 /* Build configuration list for PBXNativeTarget "Cerulean" */;
+			buildPhases = (
+				9EE799ED1AE07BB800A88E44 /* Sources */,
+				9EE799EE1AE07BB800A88E44 /* Frameworks */,
+				9EE799EF1AE07BB800A88E44 /* Headers */,
+				9EE799F01AE07BB800A88E44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cerulean;
+			productName = Cerulean;
+			productReference = 9EE799F21AE07BB800A88E44 /* Cerulean.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9EE799FC1AE07BB800A88E44 /* CeruleanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EE79A0B1AE07BB800A88E44 /* Build configuration list for PBXNativeTarget "CeruleanTests" */;
+			buildPhases = (
+				9EE799F91AE07BB800A88E44 /* Sources */,
+				9EE799FA1AE07BB800A88E44 /* Frameworks */,
+				9EE799FB1AE07BB800A88E44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EE79A001AE07BB800A88E44 /* PBXTargetDependency */,
+			);
+			name = CeruleanTests;
+			productName = CeruleanTests;
+			productReference = 9EE799FD1AE07BB800A88E44 /* CeruleanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9EE799E91AE07BB700A88E44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Keith Ermel";
+				TargetAttributes = {
+					9EE799F11AE07BB800A88E44 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					9EE799FC1AE07BB800A88E44 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 9EE799EC1AE07BB700A88E44 /* Build configuration list for PBXProject "Cerulean" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9EE799E81AE07BB700A88E44;
+			productRefGroup = 9EE799F31AE07BB800A88E44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9EE799F11AE07BB800A88E44 /* Cerulean */,
+				9EE799FC1AE07BB800A88E44 /* CeruleanTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9EE799F01AE07BB800A88E44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EE799FB1AE07BB800A88E44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9EE799ED1AE07BB800A88E44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE79A981AE0A28F00A88E44 /* CeruleanObject.m in Sources */,
+				9EE79A9A1AE0A29000A88E44 /* Peripheral.m in Sources */,
+				9EE79A841AE0A05000A88E44 /* NSMutableArray+Queue.m in Sources */,
+				9EE79A921AE0A28F00A88E44 /* Central.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EE799F91AE07BB800A88E44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE79A051AE07BB800A88E44 /* CeruleanTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9EE79A001AE07BB800A88E44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EE799F11AE07BB800A88E44 /* Cerulean */;
+			targetProxy = 9EE799FF1AE07BB800A88E44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9EE79A061AE07BB800A88E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9EE79A071AE07BB800A88E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9EE79A091AE07BB800A88E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Cerulean/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9EE79A0A1AE07BB800A88E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Cerulean/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9EE79A0C1AE07BB800A88E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CeruleanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9EE79A0D1AE07BB800A88E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CeruleanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9EE799EC1AE07BB700A88E44 /* Build configuration list for PBXProject "Cerulean" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EE79A061AE07BB800A88E44 /* Debug */,
+				9EE79A071AE07BB800A88E44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EE79A081AE07BB800A88E44 /* Build configuration list for PBXNativeTarget "Cerulean" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EE79A091AE07BB800A88E44 /* Debug */,
+				9EE79A0A1AE07BB800A88E44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9EE79A0B1AE07BB800A88E44 /* Build configuration list for PBXNativeTarget "CeruleanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EE79A0C1AE07BB800A88E44 /* Debug */,
+				9EE79A0D1AE07BB800A88E44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9EE799E91AE07BB700A88E44 /* Project object */;
+}

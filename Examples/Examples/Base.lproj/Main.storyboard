@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qw6-k9-CqY">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Cerulean-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CeruleanViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxT-zE-YAI">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="BKS-yv-PWj"/>
+                                    <constraint firstAttribute="height" constant="100" id="S9w-kY-yho"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                                <state key="normal" title="Subscription">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jH6-th-8nQ" kind="show" id="hpP-N1-Puh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.54901960780000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="gxT-zE-YAI" secondAttribute="centerX" id="ZQw-cl-lbJ"/>
+                            <constraint firstAttribute="centerY" secondItem="gxT-zE-YAI" secondAttribute="centerY" id="z1h-em-KBa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cerulean" id="jLV-3k-Ct3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="-226"/>
+        </scene>
+        <!--Subscription-->
+        <scene sceneID="l13-bz-iOb">
+            <objects>
+                <viewController id="jH6-th-8nQ" customClass="SubscriptionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1qL-41-tKp"/>
+                        <viewControllerLayoutGuide type="bottom" id="WD6-AD-Jos"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TvI-bL-XKM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yn9-ma-E5j">
+                                <rect key="frame" x="250" y="184" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7JY-Xr-ejr"/>
+                                    <constraint firstAttribute="height" constant="100" id="jdX-LS-dK7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                                <state key="normal" title="Provider">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Clj-8a-ZXU" kind="show" id="qag-BI-nZs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuy-JT-5P5">
+                                <rect key="frame" x="250" y="315" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="V9A-ER-b6U"/>
+                                    <constraint firstAttribute="width" constant="100" id="nzU-VA-OQH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                                <state key="normal" title="Subscriber">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="f95-pa-Eee" kind="show" id="FaM-bI-aJD"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8p-fV-wEg">
+                                <rect key="frame" x="293" y="292" width="15" height="15"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="H6o-cq-bL2"/>
+                                    <constraint firstAttribute="width" constant="15" id="HCT-Ow-VJ0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.39607843139999999" green="0.7725490196" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="yn9-ma-E5j" secondAttribute="centerX" id="BgE-eO-Zhw"/>
+                            <constraint firstAttribute="centerY" secondItem="d8p-fV-wEg" secondAttribute="centerY" id="JnH-WP-Agh"/>
+                            <constraint firstItem="d8p-fV-wEg" firstAttribute="top" secondItem="yn9-ma-E5j" secondAttribute="bottom" constant="8" id="eb2-6K-qPm"/>
+                            <constraint firstItem="kuy-JT-5P5" firstAttribute="top" secondItem="d8p-fV-wEg" secondAttribute="bottom" constant="8" id="ic8-Kj-7mS"/>
+                            <constraint firstAttribute="centerX" secondItem="kuy-JT-5P5" secondAttribute="centerX" id="q4s-SH-zu8"/>
+                            <constraint firstAttribute="centerX" secondItem="d8p-fV-wEg" secondAttribute="centerX" id="vXr-FX-nJv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Subscription" id="c3w-1F-V1g"/>
+                    <connections>
+                        <outlet property="centeringView" destination="d8p-fV-wEg" id="dIo-EQ-wiQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JiD-vi-kEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1727" y="-382"/>
+        </scene>
+        <!--Provider-->
+        <scene sceneID="SH0-Np-29V">
+            <objects>
+                <viewController id="Clj-8a-ZXU" customClass="ProviderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XHc-cf-vdz"/>
+                        <viewControllerLayoutGuide type="bottom" id="75Q-sI-PgD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fDL-cd-c0y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.45882352939999999" green="0.34509803919999998" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Provider" id="YmN-4y-QW9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mE2-Rj-K0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2463" y="-709"/>
+        </scene>
+        <!--Subscriber-->
+        <scene sceneID="7su-RZ-9dg">
+            <objects>
+                <viewController id="f95-pa-Eee" customClass="SubscriberViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oLF-Wl-c2v"/>
+                        <viewControllerLayoutGuide type="bottom" id="c2t-Db-KSX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9kJ-p3-3wK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.68235294120000001" green="0.30588235289999999" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Subscriber" id="tOj-qS-BOO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sQ-tc-tla" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2463" y="-56"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HYr-ni-sYB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qw6-k9-CqY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uTq-t6-Px8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LFa-GA-fzh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Chd-aZ-Bae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="-226"/>
+        </scene>
+    </scenes>
+</document>

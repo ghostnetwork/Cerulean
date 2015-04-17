@@ -1,0 +1,27 @@
+//
+//  Peripheral.h
+//  Cerulean
+//
+//  Created by Keith Ermel on 4/16/15.
+//  Copyright (c) 2015 Keith Ermel. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "CeruleanObject.h"
+
+@protocol PeripheralDelegate <NSObject>
+-(void)peripheral:(CBPeripheralManager *)peripheral didSubscribe:(CBCharacteristic *)characteristic;
+-(void)peripheral:(CBPeripheralManager *)peripheral didUnsubscribe:(CBCharacteristic *)characteristic;
+@end
+
+
+@interface Peripheral : BTObject
+@property (weak, nonatomic) id<PeripheralDelegate> delegate;
+
+-(void)updateCharacteristicValue:(NSData *)value;
+-(void)stopAdvertising;
+
+-(instancetype)initWithDelegate:(id<PeripheralDelegate>)delegate
+       characteristicUUIDString:(NSString *)characteristicUUIDString
+              serviceUUIDString:(NSString *)serviceUUIDString;
+@end
