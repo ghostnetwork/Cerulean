@@ -9,47 +9,59 @@
 @import Cerulean;
 #import "ProviderViewController.h"
 #import "CeruleanAppDelegate.h"
+#import "Commands.h"
 
 
 @interface ProviderViewController ()<PeripheralDelegate>
-@property (strong, readonly) Peripheral *peripheral;
+@property (strong, readonly) Peripheral *provider;
 @end
 
 
 @implementation ProviderViewController
 
 #pragma mark - PeripheralDelegate
--(void)peripheral:(CBPeripheralManager *)peripheral didSubscribe:(CBCharacteristic *)characteristic
+-(void)didSubscribeToCharacteristic:(CBCharacteristic *)characteristic
 {
-    
+    NSLog(@"--> did subscribe");
+
+    [self postMessage:self.commands.initialConnectionAwk];
+    [self updateConnectionStatus:ConnectionStatusConnected];
+    [self updateStatus:@"ICA posted"];
 }
 
--(void)peripheral:(CBPeripheralManager *)peripheral didUnsubscribe:(CBCharacteristic *)characteristic
+-(void)didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic
 {
-    
+    NSLog(@"<-- did unsubscribe");
+    [self updateConnectionStatus:ConnectionStatusDisconnected];
 }
 
-#pragma mark - PeripheralDelegate
--(void)didSubscribe:(CBCharacteristic *)characteristic
+
+#pragma mark - Internal API
+-(void)postMessage:(NSString *)message
 {
-    NSLog(@"did subscribe: %@", characteristic.UUID.UUIDString);
+    NSData *value = [message dataUsingEncoding:NSUTF8StringEncoding];
+    [self.provider updateCharacteristicValue:value];
 }
 
--(void)didUnsubscribe:(CBCharacteristic *)characteristic
+
+#pragma mark - Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"did unubscribe: %@", characteristic.UUID.UUIDString);
+    if ([segue.identifier isEqualToString:@"providerConnectionStatusSegue"]) {
+        self.connectionStatusVC = (ConnectionStatusViewController *)segue.destinationViewController;
+    }
 }
 
 
 #pragma mark - Configuration
--(void)configurePeripheral
+-(void)configureProvider
 {
     NSString *serviceID = [CeruleanAppDelegate appDelegate].subscriptionServiceID;
     NSString *characteristicID = [CeruleanAppDelegate appDelegate].subscriptionCurrentTimeID;
 
-    _peripheral = [[Peripheral alloc] initWithDelegate:self
-                              characteristicUUIDString:characteristicID
-                                     serviceUUIDString:serviceID];
+    _provider = [[Peripheral alloc] initWithDelegate:self
+                            characteristicUUIDString:characteristicID
+                                   serviceUUIDString:serviceID];
 }
 
 
@@ -58,7 +70,7 @@
 {
     [super viewDidLoad];
     
-    [self configurePeripheral];
+    [self configureProvider];
 }
 
 @end

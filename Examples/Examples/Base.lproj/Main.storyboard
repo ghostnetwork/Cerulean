@@ -7,7 +7,7 @@
         <!--Cerulean-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CeruleanViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CeruleanBaseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -125,7 +125,23 @@
                     <view key="view" contentMode="scaleToFill" id="fDL-cd-c0y">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQj-Kh-5Oc">
+                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="sUi-Av-vb7"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="koV-sa-YaS" kind="embed" identifier="providerConnectionStatusSegue" id="9Ne-Z0-z3t"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="0.45882352939999999" green="0.34509803919999998" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oQj-Kh-5Oc" firstAttribute="leading" secondItem="fDL-cd-c0y" secondAttribute="leading" id="KLr-gL-nuq"/>
+                            <constraint firstItem="75Q-sI-PgD" firstAttribute="top" secondItem="oQj-Kh-5Oc" secondAttribute="bottom" id="VOp-RR-xGd"/>
+                            <constraint firstAttribute="trailing" secondItem="oQj-Kh-5Oc" secondAttribute="trailing" id="ueZ-sv-61g"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Provider" id="YmN-4y-QW9"/>
                 </viewController>
@@ -144,7 +160,23 @@
                     <view key="view" contentMode="scaleToFill" id="9kJ-p3-3wK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94c-5l-zuj">
+                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c7z-YU-WKx"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="koV-sa-YaS" kind="embed" identifier="subscriberConnectionStatusSegue" id="JHs-ne-lTP"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="0.68235294120000001" green="0.30588235289999999" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="c2t-Db-KSX" firstAttribute="top" secondItem="94c-5l-zuj" secondAttribute="bottom" id="F3w-gb-agb"/>
+                            <constraint firstAttribute="trailing" secondItem="94c-5l-zuj" secondAttribute="trailing" id="NgP-2k-c2a"/>
+                            <constraint firstItem="94c-5l-zuj" firstAttribute="leading" secondItem="9kJ-p3-3wK" secondAttribute="leading" id="ROj-oc-S6L"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Subscriber" id="tOj-qS-BOO"/>
                 </viewController>
@@ -170,5 +202,70 @@
             </objects>
             <point key="canvasLocation" x="152" y="-226"/>
         </scene>
+        <!--Connection Status View Controller-->
+        <scene sceneID="W5u-r5-Ezz">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="koV-sa-YaS" customClass="ConnectionStatusViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2gZ-fI-as4"/>
+                        <viewControllerLayoutGuide type="bottom" id="iyq-p6-Bp4"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Evs-hH-OoZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3g1-3A-RqG" userLabel="Indicator View">
+                                <rect key="frame" x="8" y="7" width="15" height="15"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="ewF-fM-dOM"/>
+                                    <constraint firstAttribute="height" constant="15" id="qlt-nM-6AD"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="connection status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFq-nQ-z7A">
+                                <rect key="frame" x="31" y="4" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="XcX-l6-beq"/>
+                                    <constraint firstAttribute="width" constant="100" id="qxj-Km-eJn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPO-6r-dfB">
+                                <rect key="frame" x="139" y="4" width="445" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ZGy-4a-vpT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="3g1-3A-RqG" secondAttribute="centerY" id="MSO-rk-whm"/>
+                            <constraint firstItem="bPO-6r-dfB" firstAttribute="leading" secondItem="BFq-nQ-z7A" secondAttribute="trailing" constant="8" id="Nub-Fv-32w"/>
+                            <constraint firstAttribute="centerY" secondItem="BFq-nQ-z7A" secondAttribute="centerY" id="QgV-xY-B4a"/>
+                            <constraint firstAttribute="trailing" secondItem="bPO-6r-dfB" secondAttribute="trailing" constant="16" id="Z6S-cX-Mup"/>
+                            <constraint firstAttribute="centerY" secondItem="bPO-6r-dfB" secondAttribute="centerY" id="crf-mU-2Hy"/>
+                            <constraint firstItem="3g1-3A-RqG" firstAttribute="leading" secondItem="Evs-hH-OoZ" secondAttribute="leading" constant="8" id="y7h-Qj-1rW"/>
+                            <constraint firstItem="BFq-nQ-z7A" firstAttribute="leading" secondItem="3g1-3A-RqG" secondAttribute="trailing" constant="8" id="yq4-gN-c97"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="connectionStatusLabel" destination="BFq-nQ-z7A" id="AF2-zB-Vsa"/>
+                        <outlet property="indicatorView" destination="3g1-3A-RqG" id="pfU-21-hS7"/>
+                        <outlet property="statusLabel" destination="bPO-6r-dfB" id="n2I-85-Qid"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMb-fv-q0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3327" y="-434"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JHs-ne-lTP"/>
+    </inferredMetricsTieBreakers>
 </document>

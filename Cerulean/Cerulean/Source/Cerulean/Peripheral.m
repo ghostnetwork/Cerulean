@@ -21,7 +21,7 @@
 #pragma mark - Public API
 -(void)updateCharacteristicValue:(NSData *)value
 {
-//    NSLog(@"update characteristic value: %ld", (unsigned long)value.length);
+    NSLog(@"update characteristic value: %ld bytes", (unsigned long)value.length);
     [self.peripheralManager updateValue:value forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
 }
 
@@ -73,7 +73,7 @@ didSubscribeToCharacteristic:(CBCharacteristic *)characteristic
     NSLog(@"didSubscribeToCharacteristic\n  peripheral: %@\n  central: %@\n  characteristic: %@",
           peripheral, central, characteristic);
     
-    [self.delegate peripheral:peripheral didSubscribe:characteristic];
+    [self.delegate didSubscribeToCharacteristic:characteristic];
 }
 
         -(void)peripheralManager:(CBPeripheralManager *)peripheral
@@ -83,7 +83,7 @@ didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic
     NSLog(@"didUnsubscribeFromCharacteristic\n  peripheral: %@\n  central: %@\n  characteristic: %@",
           peripheral, central, characteristic);
     
-    [self.delegate peripheral:peripheral didUnsubscribe:characteristic];
+    [self.delegate didUnsubscribeFromCharacteristic:characteristic];
 }
 
 -(void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral

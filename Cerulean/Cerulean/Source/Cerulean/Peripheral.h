@@ -10,8 +10,8 @@
 #import "CeruleanObject.h"
 
 @protocol PeripheralDelegate <NSObject>
--(void)peripheral:(CBPeripheralManager *)peripheral didSubscribe:(CBCharacteristic *)characteristic;
--(void)peripheral:(CBPeripheralManager *)peripheral didUnsubscribe:(CBCharacteristic *)characteristic;
+-(void)didSubscribeToCharacteristic:(CBCharacteristic *)characteristic;
+-(void)didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic;
 @end
 
 

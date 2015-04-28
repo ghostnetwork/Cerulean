@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CeruleanBaseViewController.h"
 
 
-@interface ProviderViewController : UIViewController
+@interface ProviderViewController : CeruleanBaseViewController
 @end
