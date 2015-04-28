@@ -135,15 +135,29 @@
                                     <segue destination="koV-sa-YaS" kind="embed" identifier="providerConnectionStatusSegue" id="9Ne-Z0-z3t"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btt-Ie-OjV" userLabel="Circle View">
+                                <rect key="frame" x="275" y="512" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="e8o-hw-ffb"/>
+                                    <constraint firstAttribute="height" constant="50" id="uPW-8e-mhH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.45882352939999999" green="0.34509803919999998" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="btt-Ie-OjV" secondAttribute="centerX" id="0g1-ea-lak"/>
                             <constraint firstItem="oQj-Kh-5Oc" firstAttribute="leading" secondItem="fDL-cd-c0y" secondAttribute="leading" id="KLr-gL-nuq"/>
                             <constraint firstItem="75Q-sI-PgD" firstAttribute="top" secondItem="oQj-Kh-5Oc" secondAttribute="bottom" id="VOp-RR-xGd"/>
+                            <constraint firstItem="oQj-Kh-5Oc" firstAttribute="top" secondItem="btt-Ie-OjV" secondAttribute="bottom" constant="8" id="eWP-zP-i83"/>
                             <constraint firstAttribute="trailing" secondItem="oQj-Kh-5Oc" secondAttribute="trailing" id="ueZ-sv-61g"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Provider" id="YmN-4y-QW9"/>
+                    <connections>
+                        <outlet property="circleBottomSpaceConstraint" destination="eWP-zP-i83" id="8ew-e8-9wA"/>
+                        <outlet property="circleView" destination="btt-Ie-OjV" id="xQ4-Bu-cuX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mE2-Rj-K0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,15 +184,29 @@
                                     <segue destination="koV-sa-YaS" kind="embed" identifier="subscriberConnectionStatusSegue" id="JHs-ne-lTP"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9r7-Bo-LKV" userLabel="Circle View">
+                                <rect key="frame" x="275" y="512" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Bhu-0C-vho"/>
+                                    <constraint firstAttribute="height" constant="50" id="ijB-3I-abT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.68235294120000001" green="0.30588235289999999" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="c2t-Db-KSX" firstAttribute="top" secondItem="94c-5l-zuj" secondAttribute="bottom" id="F3w-gb-agb"/>
                             <constraint firstAttribute="trailing" secondItem="94c-5l-zuj" secondAttribute="trailing" id="NgP-2k-c2a"/>
                             <constraint firstItem="94c-5l-zuj" firstAttribute="leading" secondItem="9kJ-p3-3wK" secondAttribute="leading" id="ROj-oc-S6L"/>
+                            <constraint firstItem="94c-5l-zuj" firstAttribute="top" secondItem="9r7-Bo-LKV" secondAttribute="bottom" constant="8" id="nUe-BB-J1t"/>
+                            <constraint firstAttribute="centerX" secondItem="9r7-Bo-LKV" secondAttribute="centerX" id="nqa-ua-E0J"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Subscriber" id="tOj-qS-BOO"/>
+                    <connections>
+                        <outlet property="circleBottomSpaceConstraint" destination="nUe-BB-J1t" id="EGO-lL-an7"/>
+                        <outlet property="circleView" destination="9r7-Bo-LKV" id="P3K-Tj-jwR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sQ-tc-tla" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,6 +294,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JHs-ne-lTP"/>
+        <segue reference="9Ne-Z0-z3t"/>
     </inferredMetricsTieBreakers>
 </document>

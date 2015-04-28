@@ -14,6 +14,11 @@
 
 @interface SubscriberViewController ()<CentralDelegate>
 @property (strong, readonly) Central *central;
+@property (nonatomic, readonly) CGFloat origCircleBottomSpaceConstant;
+
+// Outlets
+@property (weak, nonatomic) IBOutlet UIView *circleView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *circleBottomSpaceConstraint;
 @end
 
 
@@ -44,6 +49,8 @@
 {
     NSLog(@"routeCommand: %@", command);
     if ([command isEqualToString:self.commands.initialConnectionAwk]) {[self onInitialConnectionAwk];}
+    else if ([command hasPrefix:self.commands.circlePositionY]) {[self updateCirclePosition:command];}
+    else if ([command isEqualToString:self.commands.returnCircleToStart]) {[self returnCircleToStartingPosition];}
 }
 -(void)acceptData:(NSData *)data {[self routeCommand:[self parseCommand:data]];}
 -(NSString *)parseCommand:(NSData *)data {return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];}
@@ -51,6 +58,27 @@
 
 #pragma mark - Command Handlers
 -(void)onInitialConnectionAwk {[self updateStatus:@"ICA received"];}
+-(void)updateCirclePosition:(NSString *)command
+{
+    NSArray *parts = [command componentsSeparatedByString:self.commands.circlePositionY];
+    if (parts && parts.count == 2) {
+        NSString *positionY = parts[1];
+        CGFloat y = [positionY doubleValue];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.circleBottomSpaceConstraint.constant = y;
+        });
+    }
+}
+-(void)returnCircleToStartingPosition
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.circleBottomSpaceConstraint.constant = self.origCircleBottomSpaceConstant;
+        [UIView animateWithDuration:0.25
+                         animations:^{[self.view layoutIfNeeded];}
+                         completion:^(BOOL finished) {}];
+    });
+}
 
 
 #pragma mark - Segue
@@ -73,12 +101,22 @@
                        characteristicUUIDStrings:@[characteristicID]];
 }
 
+-(void)configureCircleView
+{
+    self.circleView.layer.cornerRadius = self.circleView.bounds.size.width / 2.0;
+    self.circleView.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:0.75].CGColor;
+    self.circleView.layer.borderWidth = 1.0;
+}
+
 
 #pragma mark - View Lifecycle
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
+    _origCircleBottomSpaceConstant = self.circleBottomSpaceConstraint.constant;
+    
+    [self configureCircleView];
     [self configureCentral];
 }
 

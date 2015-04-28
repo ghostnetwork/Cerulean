@@ -17,6 +17,8 @@
     self = [super init];
     if (self) {
         _initialConnectionAwk = @"#ICA#";
+        _circlePositionY = @"#CPY#::";
+        _returnCircleToStart = @"#RCS#";
     }
     return self;
 }

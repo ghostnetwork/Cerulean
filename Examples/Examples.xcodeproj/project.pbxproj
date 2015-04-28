@@ -13,6 +13,8 @@
 		3A74A5DB1AEE870D00676944 /* ConnectionStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74A5DA1AEE870D00676944 /* ConnectionStatusViewController.m */; };
 		3A74A5DF1AEE8B6A00676944 /* ConnectionColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A74A5DE1AEE8B6A00676944 /* ConnectionColors.swift */; };
 		3A74A5E31AEE926F00676944 /* CeruleanBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74A5E21AEE926F00676944 /* CeruleanBaseViewController.m */; };
+		3AA781951AF26974002DB60A /* SwiftCrux_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A69D39D1AF02B6D00CFC430 /* SwiftCrux_iOS.framework */; };
+		3AA781961AF26974002DB60A /* SwiftCrux_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A69D39D1AF02B6D00CFC430 /* SwiftCrux_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EE79A1F1AE07CE100A88E44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE79A1E1AE07CE100A88E44 /* main.m */; };
 		9EE79A281AE07CE100A88E44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE79A261AE07CE100A88E44 /* Main.storyboard */; };
 		9EE79A2A1AE07CE100A88E44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE79A291AE07CE100A88E44 /* Images.xcassets */; };
@@ -42,6 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3AA781961AF26974002DB60A /* SwiftCrux_iOS.framework in Embed Frameworks */,
 				3A1CF1AB1AEE79F1001A00BE /* Cerulean.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -51,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		3A1CF1A91AEE79F1001A00BE /* Cerulean.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Cerulean.framework; path = "/Users/xdkeith/Library/Developer/Xcode/DerivedData/Cerulean-cmzvroddraidahbtdowpldqdmspt/Build/Products/Debug-iphoneos/Cerulean.framework"; sourceTree = "<absolute>"; };
+		3A69D39D1AF02B6D00CFC430 /* SwiftCrux_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCrux_iOS.framework; path = "../../../../../../../../Users/xdkeith/Library/Developer/Xcode/DerivedData/ThirdRail-cxtjoigrdvjvszgpxvfkqmtmfwbh/Build/Products/Debug-iphoneos/SwiftCrux_iOS.framework"; sourceTree = "<group>"; };
 		3A74A5D11AEE824400676944 /* Commands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commands.h; sourceTree = "<group>"; };
 		3A74A5D21AEE824400676944 /* Commands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commands.m; sourceTree = "<group>"; };
 		3A74A5D91AEE870D00676944 /* ConnectionStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatusViewController.h; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA781951AF26974002DB60A /* SwiftCrux_iOS.framework in Frameworks */,
 				3A1CF1AA1AEE79F1001A00BE /* Cerulean.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,9 +493,10 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Cerulean-hbfcpbfptpmemxcmnmzbujlpgndv/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Cerulean-cmzvroddraidahbtdowpldqdmspt/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ThirdRail-cxtjoigrdvjvszgpxvfkqmtmfwbh/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
@@ -507,9 +513,10 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Cerulean-hbfcpbfptpmemxcmnmzbujlpgndv/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Cerulean-cmzvroddraidahbtdowpldqdmspt/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ThirdRail-cxtjoigrdvjvszgpxvfkqmtmfwbh/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";

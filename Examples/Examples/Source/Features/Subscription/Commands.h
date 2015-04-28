@@ -10,4 +10,6 @@
 
 @interface Commands : NSObject
 @property (copy, readonly) NSString *initialConnectionAwk;
+@property (copy, readonly) NSString *circlePositionY;
+@property (copy, readonly) NSString *returnCircleToStart;
 @end

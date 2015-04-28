@@ -14,6 +14,11 @@
 
 @interface ProviderViewController ()<PeripheralDelegate>
 @property (strong, readonly) Peripheral *provider;
+@property (nonatomic, readonly) CGFloat origCircleBottomSpaceConstant;
+
+// Outlets
+@property (weak, nonatomic) IBOutlet UIView *circleView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *circleBottomSpaceConstraint;
 @end
 
 
@@ -44,6 +49,44 @@
     [self.provider updateCharacteristic:characteristicID withValue:value];
 }
 
+-(void)updateCirclePosition:(CGFloat)deltaY
+{
+    CGFloat y = self.origCircleBottomSpaceConstant + (-1.0 * deltaY);
+    self.circleBottomSpaceConstraint.constant = y;
+    
+    NSString *message = [NSString stringWithFormat:@"%@%3.0f", self.commands.circlePositionY, y];
+    [self postMessage:message];
+}
+
+-(void)returnCircleToOriginalPosition
+{
+    self.circleBottomSpaceConstraint.constant = self.origCircleBottomSpaceConstant;
+    [UIView animateWithDuration:0.25
+                     animations:^{[self.view layoutIfNeeded];}
+                     completion:^(BOOL finished) {[self postMessage:self.commands.returnCircleToStart];}];
+}
+
+
+#pragma mark - Gestures
+-(void)didPan:(UIPanGestureRecognizer *)gesture
+{
+    CGFloat deltaY = [gesture translationInView:self.view].y;
+    switch (gesture.state) {
+        case UIGestureRecognizerStateChanged:
+            [self updateCirclePosition:deltaY];
+            break;
+            
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateFailed:
+            [self returnCircleToOriginalPosition];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -65,12 +108,31 @@
                            characteristicUUIDStrings:@[characteristicID]];
 }
 
+-(void)configureCircleView
+{
+    self.circleView.layer.cornerRadius = self.circleView.bounds.size.width / 2.0;
+    self.circleView.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:0.75].CGColor;
+    self.circleView.layer.borderWidth = 1.0;
+    
+    [self configureCirclePanGesture];
+}
+
+-(void)configureCirclePanGesture
+{
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
+    [self.circleView addGestureRecognizer:pan];
+}
+
+
 
 #pragma mark - View Lifecycle
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
+    _origCircleBottomSpaceConstant = self.circleBottomSpaceConstraint.constant;
+    
+    [self configureCircleView];
     [self configureProvider];
 }
 
