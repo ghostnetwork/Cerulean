@@ -84,9 +84,9 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
     NSLog(@"didDiscoverServices: %@", peripheral.services);
-    
+    NSArray *characteristicCBUUIDs = [self configureCharacteristicCBUUIDs];
     for (CBService *service in peripheral.services) {
-        [peripheral discoverCharacteristics:@[[CBUUID UUIDWithString:self.characteristicUUIDString]]
+        [peripheral discoverCharacteristics:characteristicCBUUIDs
                                  forService:service];
     }
 }
@@ -96,7 +96,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
                                error:(NSError *)error
 {
     for (CBCharacteristic *characteristic in service.characteristics) {
-        if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:self.characteristicUUIDString]]) {
+        if ([self isKnownCharacteristic:characteristic]) {
             NSLog(@"subscribed to characteristic: %@", characteristic);
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
         }
@@ -137,19 +137,22 @@ didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
 }
 
 
+#pragma mark - Configuration
+-(void)configureWithDelegate:(id<CentralDelegate>)delegate
+{
+    _delegate = delegate;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:queue];
+}
+
+
 #pragma mark - Initialization
 -(instancetype)initWithDelegate:(id<CentralDelegate>)delegate
-       characteristicUUIDString:(NSString *)characteristicUUIDString
               serviceUUIDString:(NSString *)serviceUUIDString
+      characteristicUUIDStrings:(NSArray *)characteristicUUIDStrings
 {
-    self = [super initWithCharacteristicUUIDString:characteristicUUIDString serviceUUIDString:serviceUUIDString];
-    
-    if (self) {
-        _delegate = delegate;
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:queue];
-    }
-    
+    self = [super initWithServiceUUIDString:serviceUUIDString characteristicUUIDStrings:characteristicUUIDStrings];
+    if (self) {[self configureWithDelegate:delegate];}
     return self;
 }
 

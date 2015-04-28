@@ -17,9 +17,12 @@ extern NSString *const kEndOfMessageText;
 extern NSUInteger const kMaxChunkSize;
 
 @interface BTObject : NSObject
-@property (strong, readonly) NSString *characteristicUUIDString;
 @property (strong, readonly) NSString *serviceUUIDString;
+@property (strong, readonly) NSArray *characteristicUUIDStrings;
 
--(instancetype)initWithCharacteristicUUIDString:(NSString *)characteristicUUIDString
-                              serviceUUIDString:(NSString *)serviceUUIDString;
+-(NSArray *)configureCharacteristicCBUUIDs;
+-(BOOL)isKnownCharacteristic:(CBCharacteristic *)characteristic;
+
+-(instancetype)initWithServiceUUIDString:(NSString *)serviceUUIDString
+               characteristicUUIDStrings:(NSArray *)characteristicUUIDStrings;
 @end

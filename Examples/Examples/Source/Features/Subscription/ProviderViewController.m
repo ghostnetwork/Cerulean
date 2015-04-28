@@ -39,8 +39,9 @@
 #pragma mark - Internal API
 -(void)postMessage:(NSString *)message
 {
+    NSString *characteristicID = [CeruleanAppDelegate appDelegate].subscriptionCurrentTimeID;
     NSData *value = [message dataUsingEncoding:NSUTF8StringEncoding];
-    [self.provider updateCharacteristicValue:value];
+    [self.provider updateCharacteristic:characteristicID withValue:value];
 }
 
 
@@ -60,8 +61,8 @@
     NSString *characteristicID = [CeruleanAppDelegate appDelegate].subscriptionCurrentTimeID;
 
     _provider = [[Peripheral alloc] initWithDelegate:self
-                            characteristicUUIDString:characteristicID
-                                   serviceUUIDString:serviceID];
+                                   serviceUUIDString:serviceID
+                           characteristicUUIDStrings:@[characteristicID]];
 }
 
 

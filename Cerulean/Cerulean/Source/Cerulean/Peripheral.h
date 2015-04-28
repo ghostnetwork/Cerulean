@@ -18,10 +18,10 @@
 @interface Peripheral : BTObject
 @property (weak, nonatomic) id<PeripheralDelegate> delegate;
 
--(void)updateCharacteristicValue:(NSData *)value;
+-(void)updateCharacteristic:(NSString *)characteristicID withValue:(NSData *)value;
 -(void)stopAdvertising;
 
 -(instancetype)initWithDelegate:(id<PeripheralDelegate>)delegate
-       characteristicUUIDString:(NSString *)characteristicUUIDString
-              serviceUUIDString:(NSString *)serviceUUIDString;
+              serviceUUIDString:(NSString *)serviceUUIDString
+      characteristicUUIDStrings:(NSArray *)characteristicUUIDStrings;
 @end

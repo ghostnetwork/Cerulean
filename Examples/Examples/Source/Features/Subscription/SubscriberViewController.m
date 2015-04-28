@@ -69,8 +69,8 @@
     NSString *characteristicID = [CeruleanAppDelegate appDelegate].subscriptionCurrentTimeID;
     
     _central = [[Central alloc] initWithDelegate:self
-                        characteristicUUIDString:characteristicID
-                               serviceUUIDString:serviceID];
+                               serviceUUIDString:serviceID
+                       characteristicUUIDStrings:@[characteristicID]];
 }
 
 

@@ -19,7 +19,8 @@
 @interface Central : BTObject
 @property (weak, nonatomic) id<CentralDelegate> delegate;
 
+
 -(instancetype)initWithDelegate:(id<CentralDelegate>)delegate
-       characteristicUUIDString:(NSString *)characteristicUUIDString
-              serviceUUIDString:(NSString *)serviceUUIDString;
+              serviceUUIDString:(NSString *)serviceUUIDString
+      characteristicUUIDStrings:(NSArray *)characteristicUUIDStrings;
 @end

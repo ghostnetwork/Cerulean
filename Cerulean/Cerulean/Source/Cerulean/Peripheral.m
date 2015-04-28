@@ -12,32 +12,20 @@
 
 @interface Peripheral ()<CBPeripheralManagerDelegate, CBPeripheralDelegate>
 @property (strong, readonly) CBPeripheralManager *peripheralManager;
-@property (strong, nonatomic) CBMutableCharacteristic *transferCharacteristic;
+@property (copy, nonatomic, readonly) NSArray *characteristics;
 @end
 
 
 @implementation Peripheral
 
 #pragma mark - Public API
--(void)updateCharacteristicValue:(NSData *)value
+-(void)updateCharacteristic:(NSString *)characteristicID withValue:(NSData *)value
 {
-    NSLog(@"update characteristic value: %ld bytes", (unsigned long)value.length);
-    [self.peripheralManager updateValue:value forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
-}
-
-
-#pragma mark - Internal API
--(void)startAdvertising
-{
-    NSLog(@"startAdvertising; serviceID: %@", self.serviceUUIDString);
-    CBUUID *uuid = [CBUUID UUIDWithString:self.serviceUUIDString];
-    [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[uuid]}];
-}
-
--(void)stopAdvertising
-{
-    NSLog(@"stopAdvertising");
-    [self.peripheralManager stopAdvertising];
+    NSLog(@"update characteristic [%@]; value: %ld bytes", characteristicID, (unsigned long)value.length);
+    CBMutableCharacteristic *c = [self characteristicWithID:characteristicID];
+    if (c) {
+        [self.peripheralManager updateValue:value forCharacteristic:c onSubscribedCentrals:nil];
+    }
 }
 
 
@@ -46,8 +34,8 @@
 {
     if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
         NSLog(@"peripheral ON");
-        [self configureTransferCharacteristic];
-        [self configureTransferService];
+        [self configureCharacteristics];
+        [self configureService];
         [self startAdvertising];
     }
     else if (peripheral.state == CBPeripheralManagerStatePoweredOff) {
@@ -91,39 +79,68 @@ didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic
 }
 
 
-#pragma mark - Configuration
--(void)configureTransferCharacteristic
+#pragma mark - Internal API
+-(void)startAdvertising
 {
-    CBUUID *characteristicUUID = [CBUUID UUIDWithString:self.characteristicUUIDString];
-    self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:characteristicUUID
-                                                                     properties:CBCharacteristicPropertyNotify
-                                                                          value:nil
-                                                                    permissions:CBAttributePermissionsReadable];
+    NSLog(@"startAdvertising; serviceID: %@", self.serviceUUIDString);
+    CBUUID *uuid = [CBUUID UUIDWithString:self.serviceUUIDString];
+    [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[uuid]}];
 }
 
--(void)configureTransferService
+-(void)stopAdvertising
+{
+    NSLog(@"stopAdvertising");
+    [self.peripheralManager stopAdvertising];
+}
+
+-(CBMutableCharacteristic *)characteristicWithID:(NSString *)characteristicID
+{
+    for (CBMutableCharacteristic *c in self.characteristics) {
+        if ([c.UUID.UUIDString isEqualToString:characteristicID]) {return c;}
+    }
+    return nil;
+}
+
+
+#pragma mark - Configuration
+-(void)configureWithDelegate:(id<PeripheralDelegate>)delegate
+{
+    _delegate = delegate;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:queue];
+}
+
+-(void)configureCharacteristics
+{
+    NSMutableArray *working = [[NSMutableArray alloc] init];
+    for (NSString *characteristicID in self.characteristicUUIDStrings) {
+        CBUUID *uuid = [CBUUID UUIDWithString:characteristicID];
+        CBMutableCharacteristic *c = [[CBMutableCharacteristic alloc] initWithType:uuid
+                                                                        properties:CBCharacteristicPropertyNotify
+                                                                             value:nil
+                                                                       permissions:CBAttributePermissionsReadable];
+        [working addObject:c];
+    }
+    _characteristics = [NSArray arrayWithArray:working];
+}
+
+-(void)configureService
 {
     CBUUID *serviceUUID = [CBUUID UUIDWithString:self.serviceUUIDString];
     CBMutableService *transferService = [[CBMutableService alloc] initWithType:serviceUUID
                                                                        primary:YES];
-    transferService.characteristics = @[self.transferCharacteristic];
+    transferService.characteristics = self.characteristics;
     [self.peripheralManager addService:transferService];
 }
 
 
 #pragma mark - Initialization
 -(instancetype)initWithDelegate:(id<PeripheralDelegate>)delegate
-       characteristicUUIDString:(NSString *)characteristicUUIDString
               serviceUUIDString:(NSString *)serviceUUIDString
+      characteristicUUIDStrings:(NSArray *)characteristicUUIDStrings
 {
-    self = [super initWithCharacteristicUUIDString:characteristicUUIDString serviceUUIDString:serviceUUIDString];
-    
-    if (self) {
-        _delegate = delegate;
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:queue];
-    }
-    
+    self = [super initWithServiceUUIDString:serviceUUIDString characteristicUUIDStrings:characteristicUUIDStrings];
+    if (self) {[self configureWithDelegate:delegate];}
     return self;
 }
 
